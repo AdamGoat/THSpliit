@@ -62,6 +62,7 @@ export default async function GroupPage({
             participants={group.participants}
             currency={group.currency}
             groupId={groupId}
+            groupName={group.name}
           />
         </CardContent>
       </Card>

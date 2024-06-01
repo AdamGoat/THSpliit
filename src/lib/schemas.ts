@@ -10,7 +10,11 @@ export const groupFormSchema = z
       .array(
         z.object({
           id: z.string().optional(),
-          name: z.string().min(2, 'min2').max(50, 'max50'),
+          name: z
+            .string()
+            .min(2, 'Enter at least two characters.')
+            .max(50, 'Enter at most 50 characters.'),
+          venmo: z.string(),
         }),
       )
       .min(1),
