@@ -72,6 +72,18 @@ function Separator({ color = "green", height = 1 }) {
   );
 }
 
+function Separator({ color = "green", height = 1 }) {
+  return (
+    <hr
+      style={{
+        backgroundColor: color,
+        height: height,
+        border: "none"
+      }}
+    />
+  );
+}
+
 export type Props = {
   group?: NonNullable<Awaited<ReturnType<typeof getGroup>>>
   onSubmit: (
