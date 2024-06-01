@@ -22,12 +22,17 @@ export function formatCategoryForAIPrompt(category: Category) {
 }
 
 export function formatCurrency(currency: string, amount: number) {
+  const formattedAmount = formatCurrencyNumber(amount)
+  return `${currency} ${formattedAmount}`
+}
+
+export function formatCurrencyNumber(amount: number) {
   const format = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
   const formattedAmount = format.format(amount / 100)
-  return `${currency} ${formattedAmount}`
+  return `${formattedAmount}`
 }
 
 export function formatFileSize(size: number) {

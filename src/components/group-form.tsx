@@ -39,6 +39,18 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useFieldArray, useForm } from 'react-hook-form'
 
+function Separator({ color = "green", height = 1 }) {
+  return (
+    <hr
+      style={{
+        backgroundColor: color,
+        height: height,
+        border: "none"
+      }}
+    />
+  );
+}
+
 export type Props = {
   group?: NonNullable<Awaited<ReturnType<typeof getGroup>>>
   onSubmit: (groupFormValues: GroupFormValues) => Promise<void>
@@ -162,17 +174,34 @@ export function GroupForm({
           <CardContent>
             <ul className="flex flex-col gap-2">
               {fields.map((item, index) => (
-                <li key={item.key}>
+                <li key={item.key} className="flex-row"> 
                   <FormField
                     control={form.control}
                     name={`participants.${index}.name`}
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="sr-only">
-                          Participant #{index + 1}
+                        <FormLabel>
+                          Participant Name
                         </FormLabel>
                         <FormControl>
-                          <div className="flex gap-2">
+                          <div className="flex-row gap-2">
+                            <Input className="text-base" {...field} />                           
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name={`participants.${index}.venmo`}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel >
+                          Venmo Username
+                        </FormLabel>
+                        <FormControl>
+                          <div className="flex-row gap-2">
                             <Input className="text-base" {...field} />
                             {item.id &&
                             protectedParticipantIds.includes(item.id) ? (
@@ -213,6 +242,7 @@ export function GroupForm({
                       </FormItem>
                     )}
                   />
+                  <Separator color="green" />
                 </li>
               ))}
             </ul>
@@ -221,7 +251,7 @@ export function GroupForm({
             <Button
               variant="secondary"
               onClick={() => {
-                append({ name: 'New' })
+                append({ name: 'New', venmo: '' })
               }}
               type="button"
             >

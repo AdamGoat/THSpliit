@@ -23,6 +23,7 @@ model Group {
 model Participant {
   id              String           @id
   name            String
+  venmo           String
   group           Group            @relation(fields: [groupId], references: [id], onDelete: Cascade)
   groupId         String
   expensesPaidBy  Expense[]
