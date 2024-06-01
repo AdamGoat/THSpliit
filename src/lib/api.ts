@@ -21,9 +21,10 @@ export async function createGroup(groupFormValues: GroupFormValues) {
       currencyCode: groupFormValues.currencyCode,
       participants: {
         createMany: {
-          data: groupFormValues.participants.map(({ name }) => ({
+          data: groupFormValues.participants.map(({ name, venmo }) => ({
             id: randomId(),
             name,
+            venmo,
           })),
         },
       },
@@ -323,6 +324,7 @@ export async function updateGroup(
             where: { id: participant.id },
             data: {
               name: participant.name,
+              venmo: participant.venmo,
             },
           })),
         createMany: {
@@ -331,6 +333,7 @@ export async function updateGroup(
             .map((participant) => ({
               id: randomId(),
               name: participant.name,
+              venmo: participant.venmo,
             })),
         },
       },
