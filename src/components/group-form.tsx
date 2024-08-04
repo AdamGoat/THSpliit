@@ -110,6 +110,8 @@ function Separator({ color = "green", height = 1 }) {
   );
 }
 
+import defaultParticipants from "./defaultParticipants.json"
+
 function Separator({ color = "green", height = 1 }) {
   return (
     <hr
@@ -329,7 +331,7 @@ export function GroupForm({
             <ul className="flex flex-col gap-2">
               {fields.map((item, index) => (
                 <li key={item.key} className="flex-row"> 
-                  <FormField
+                <FormField
                     control={form.control}
                     name={`participants.${index}.name`}
                     render={({ field }) => (
