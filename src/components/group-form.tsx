@@ -40,6 +40,8 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useFieldArray, useForm } from 'react-hook-form'
 
+import defaultParticipants from "./defaultParticipants.json"
+
 function Separator({ color = "green", height = 1 }) {
   return (
     <hr
@@ -77,7 +79,8 @@ export function GroupForm({
       : {
           name: '',
           currency: '',
-          participants: [{ name: 'John' }, { name: 'Jane' }, { name: 'Jack' }],
+          // participants: [{ name: 'Adam G.', venmo: 'Adam-Goad-1' }, { name: 'Adam N.', venmo: 'Adam-Naumann' }, { name: 'Alec', venmo: 'Alec-Turung' }, { name: 'Ben', venmo: 'Benjamin-Adkins' }, { name: 'Bradley', venmo: 'Bradley-Nelson-22' }, { name: 'Brian', venmo: 'Brian-Thayil' }, { name: 'Jack', venmo: 'Jack-Huigens' }, { name: 'Katie K.', venmo: 'ktkasky' }, { name: 'Katie S.', venmo: 'Katie_Stiles' }, { name: 'Lauren', venmo: 'LaurenSpindler' }, { name: 'Matt', venmo: 'Matthew-White-22351'}, {name: 'Ryan R.', venmo: 'RyanRippy'}, { name: 'Ryan S.', venmo: 'Ryndler' }, { name: 'Sam', venmo: 'Samuel-Hnatek' }, { name: 'Summer', venmo: 'Summer-Steinhilber'}],
+          participants: defaultParticipants,
         },
   })
   const { fields, append, remove } = useFieldArray({
@@ -183,7 +186,7 @@ export function GroupForm({
             <ul className="flex flex-col gap-2">
               {fields.map((item, index) => (
                 <li key={item.key} className="flex-row"> 
-                  <FormField
+                <FormField
                     control={form.control}
                     name={`participants.${index}.name`}
                     render={({ field }) => (
