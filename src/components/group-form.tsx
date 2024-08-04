@@ -31,6 +31,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+//import * as React from 'react'
 import { getGroup } from '@/lib/api'
 import { GroupFormValues, groupFormSchema } from '@/lib/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -52,6 +53,20 @@ function Separator({ color = "green", height = 1 }) {
     />
   );
 }
+
+function Separator({ color = "green", height = 1 }) {
+  return (
+    <hr
+      style={{
+        backgroundColor: color,
+        height: height,
+        border: "none"
+      }}
+    />
+  );
+}
+
+import defaultParticipants from "./defaultParticipants.json"
 
 function Separator({ color = "green", height = 1 }) {
   return (
@@ -93,11 +108,8 @@ export function GroupForm({
           name: '',
           information: '',
           currency: '',
-          participants: [
-            { name: t('Participants.John') },
-            { name: t('Participants.Jane') },
-            { name: t('Participants.Jack') },
-          ],
+          // participants: [{ name: 'Adam G.', venmo: 'Adam-Goad-1' }, { name: 'Adam N.', venmo: 'Adam-Naumann' }, { name: 'Alec', venmo: 'Alec-Turung' }, { name: 'Ben', venmo: 'Benjamin-Adkins' }, { name: 'Bradley', venmo: 'Bradley-Nelson-22' }, { name: 'Brian', venmo: 'Brian-Thayil' }, { name: 'Jack', venmo: 'Jack-Huigens' }, { name: 'Katie K.', venmo: 'ktkasky' }, { name: 'Katie S.', venmo: 'Katie_Stiles' }, { name: 'Lauren', venmo: 'LaurenSpindler' }, { name: 'Matt', venmo: 'Matthew-White-22351'}, {name: 'Ryan R.', venmo: 'RyanRippy'}, { name: 'Ryan S.', venmo: 'Ryndler' }, { name: 'Sam', venmo: 'Samuel-Hnatek' }, { name: 'Summer', venmo: 'Summer-Steinhilber'}],
+          participants: defaultParticipants,
         },
   })
   const { fields, append, remove } = useFieldArray({

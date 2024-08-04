@@ -1,6 +1,7 @@
 services:
   app:
     image: spliit2:latest
+    restart: unless-stopped
     ports:
       - 3000:3000
     env_file:
@@ -11,6 +12,7 @@ services:
 
   db:
     image: postgres:latest
+    restart: unless-stopped
     ports:
       - 5432:5432
     env_file:
