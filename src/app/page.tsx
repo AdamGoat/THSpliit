@@ -18,9 +18,8 @@ export default function HomePage() {
             })}
           </h1>
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-            {t.rich('Homepage.description', {
-              strong: (chunks) => <strong>{chunks}</strong>,
-            })}
+            Welcome to This Here <strong>Spliit</strong>! <br />
+            If you have an idea for how to improve please let me know.
           </p>
           <div className="flex gap-2">
             <Button asChild>
@@ -29,7 +28,7 @@ export default function HomePage() {
             <Button asChild variant="secondary">
               <Link href="https://github.com/spliit-app/spliit">
                 <Github className="w-4 h-4 mr-2" />
-                {t('Homepage.button.github')}
+                OG GitHub
               </Link>
             </Button>
           </div>
