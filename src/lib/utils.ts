@@ -17,9 +17,9 @@ export function formatDate(
   date: Date,
   options: { dateStyle?: DateTimeStyle; timeStyle?: DateTimeStyle } = {},
 ) {
-  return date.toLocaleString('en-GB', {
+  return date.toLocaleString('en-US', {
     ...options,
-    timeZone: 'UTC',
+    timeZone: 'America/Chicago',
   })
 }
 

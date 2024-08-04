@@ -11,6 +11,7 @@ import { getGroupExpenses } from '@/lib/api'
 import { getTotalGroupSpending } from '@/lib/totals'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { DetailGrid } from './details-grid'
 
 export const metadata: Metadata = {
   title: 'Totals',
@@ -41,6 +42,21 @@ export default async function TotalsPage({
             group={group}
             expenses={expenses}
             totalGroupSpendings={totalGroupSpendings}
+          />
+        </CardContent>
+      </Card>
+
+      <Card className="mb-4">
+        <CardHeader>
+          <CardTitle>Summary</CardTitle>
+          <CardDescription>
+            Grid showing expense/reimbursement summary. Balanced owed is the amount owed to you (negative represents debt).
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col space-y-4">
+          <DetailGrid
+            group={group}
+            expenses={expenses}
           />
         </CardContent>
       </Card>
