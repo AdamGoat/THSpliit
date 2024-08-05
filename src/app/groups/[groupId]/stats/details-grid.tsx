@@ -74,13 +74,13 @@ export function DetailGrid({
             {group.participants.map((participant, index) => (
               <tr style={rowStyle} key={index}>
                 <td>{participant.name}</td>
-                <td>{formatCurrency(group.currency,detailMap.get(participant.name)?.spend ?? 0)}</td>
+                <td>{formatCurrency(group.currency,detailMap.get(participant.name)?.spend ?? 0,"en-US")}</td>
                 <td>-</td>
-                <td>{formatCurrency(group.currency,detailMap.get(participant.name)?.share ?? 0)}</td>
+                <td>{formatCurrency(group.currency,detailMap.get(participant.name)?.share ?? 0,"en-US")}</td>
                 <td>-</td>
-                <td>{formatCurrency(group.currency,detailMap.get(participant.name)?.reimbursed ?? 0)}</td>
+                <td>{formatCurrency(group.currency,detailMap.get(participant.name)?.reimbursed ?? 0,"en-US")}</td>
                 <td>=</td>
-                <td>{formatCurrency(group.currency,detailMap.get(participant.name)?.balance ?? 0)}</td>
+                <td>{formatCurrency(group.currency,detailMap.get(participant.name)?.balance ?? 0,"en-US")}</td>
               </tr>
             ))}
           </tbody>

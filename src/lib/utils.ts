@@ -149,6 +149,15 @@ export function formatAmountAsDecimal(amount: number, currency: Currency) {
   return amountAsDecimal(amount, currency).toFixed(currency.decimal_digits)
 }
 
+export function formatCurrencyNumber(amount: number) {
+  const format = new Intl.NumberFormat('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
+  const formattedAmount = format.format(amount / 100)
+  return `${formattedAmount}`
+}
+
 export function formatFileSize(size: number, locale: string) {
   const formatNumber = (num: number) =>
     num.toLocaleString(locale, {
