@@ -38,10 +38,10 @@ export function formatCurrency(
     maximumFractionDigits: 2,
     style: 'currency',
     // '€' will be placed in correct position
-    currency: 'EUR',
+    currency: 'USD',
   })
-  const formattedAmount = format.format(amount)
-  return formattedAmount.replace('€', currency)
+  const formattedAmount = format.format(amount/100)
+  return formattedAmount.replace('$', currency)
 }
 
 export function formatCurrencyNumber(amount: number) {
