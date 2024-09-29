@@ -48,42 +48,6 @@ import { useFieldArray, useForm } from 'react-hook-form'
 import { CurrencySelector } from './currency-selector'
 import { Textarea } from './ui/textarea'
 
-function Separator({ color = "green", height = 1 }) {
-  return (
-    <hr
-      style={{
-        backgroundColor: color,
-        height: height,
-        border: "none"
-      }}
-    />
-  );
-}
-
-function Separator({ color = "green", height = 1 }) {
-  return (
-    <hr
-      style={{
-        backgroundColor: color,
-        height: height,
-        border: "none"
-      }}
-    />
-  );
-}
-
-function Separator({ color = "green", height = 1 }) {
-  return (
-    <hr
-      style={{
-        backgroundColor: color,
-        height: height,
-        border: "none"
-      }}
-    />
-  );
-}
-
 import defaultParticipants from "./defaultParticipants.json"
 
 function Separator({ color = "green", height = 1 }) {

@@ -122,5 +122,5 @@ export function getSuggestedReimbursements(
       balancesArray.shift()
     }
   }
-  return reimbursements.filter(({ amount }) => Math.abs( Math.round(amount) + 0 ) > 0.02)
+  return reimbursements.filter(({ amount }) => Math.abs( Math.round(amount) + 0 ) > 2)
 }
